@@ -1,0 +1,39 @@
+import pandas as pd
+
+# Load the dataset
+file_path = '/Users/tomerchoresh/Desktop/Broadway Project/BroadwayDemo1/playbill_data.csv'  # replace with actual dataset path
+broadway = pd.read_csv(file_path)
+
+# Ensure columns are correctly named
+broadway.columns = [
+    'show', 'gross', 'diff_gross', 'avg_ticket_price', 'seats_sold', 
+    'perfs_previews', 'capacity', 'diff_capacity', 'week_date'
+]
+
+# Convert week_date to datetime
+broadway['week_date'] = pd.to_datetime(broadway['week_date'])
+
+# Generate the summary information for each show
+show_summaries = []
+
+for show in broadway['show'].unique():
+    show_data = broadway[broadway['show'] == show]
+    
+    start_date = show_data['week_date'].min().strftime('%Y-%m-%d')
+    end_date = show_data['week_date'].max().strftime('%Y-%m-%d')
+    
+    total_revenue = show_data['gross'].sum()
+    avg_weekly_revenue = show_data['gross'].mean()
+    
+    summary = f"The show '{show}' ran from {start_date} to {end_date}. It had an average weekly revenue of ${avg_weekly_revenue:,.2f} and a total revenue of ${total_revenue:,.2f}."
+    
+    show_summaries.append([show, summary])
+
+# Create a DataFrame for the summaries
+show_summaries_df = pd.DataFrame(show_summaries, columns=['show', 'description'])
+
+# Save to CSV
+summary_csv_path = '/Users/tomerchoresh/Desktop/Broadway Project/BroadwayDemo1/broadway_show_summaries.csv'
+show_summaries_df.to_csv(summary_csv_path, index=False)
+
+summary_csv_path
