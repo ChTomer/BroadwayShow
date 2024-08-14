@@ -18,80 +18,102 @@ shinyServer(function(input, output, session) {
   ####### Introduction section  #######
   #####################################
 
-    output$project_summary <- renderUI({
+  output$project_summary <- renderUI({
     HTML("
     <h2><u>Welcome to the Broadway Shows Analysis App</u></h2>
-    <p>This app offers a deep dive into the financial performance of Broadway shows, providing 
-    insights valuable to both fans and professionals from the industry.</p>
+    <p>This app provides a comprehensive analysis of the financial performance of Broadway shows, 
+    offering valuable insights for both fans and industry professionals.</p>
     
     <h3><u>App Features</u></h3>
-    <p>Explore key aspects of Broadway shows through the following tools:</p>
+    <p>Explore Broadway shows through these key features:</p>
     <ul>
       <li><strong>Top 20 Shows:</strong> Compare the top 20 shows based on revenue, ticket prices, 
       and length of running.</li>
-      <li><strong>Compare Shows:</strong> Analyze and compare multiple shows on metrics like revenue 
+      <li><strong>Compare Shows:</strong> Analyze multiple shows on metrics like revenue 
       and audience engagement using interactive charts.</li>
-      <li><strong>Total Revenue by Week:</strong> Track weekly revenue trends for selected shows 
-      across different years.</li>
-      <li><strong>Yearly Heatmap:</strong> Visualize the total weekly gross revenue for each show 
+      <li><strong>Total Revenue by Week:</strong> Visualize the total weekly gross revenue for each show 
       through interactive heatmaps.</li>
-      <li><strong>Theater Summary:</strong> Review decade-wise statistics on theater performance, 
-      including number of shows, revenue, and more.</li>
+      <li><strong>Theater Overview:</strong> Delve into a decade-wise analysis of Broadway theaters, 
+      including the number of shows, total revenue, seating capacity, and ticket prices. Additionally, 
+      you can explore detailed summaries of shows performed at specific theaters or discover which theaters 
+      hosted a particular show.</li>
+      
     </ul>
     
     <h3><u>Why Use This App?</u></h3>
-    <p>Whether you're a Broadway fan or an industry professional, this app provides the tools to 
-    explore and understand the financial dynamics of Broadway. Use it to make informed decisions, 
-    discover trends, and gain insights into the world of theater.</p>
+    <p>Whether you're a Broadway fan or an industry professional, this app equips you with the tools 
+    to explore and understand the financial dynamics of Broadway. Use it to make informed decisions, 
+    discover trends, and gain insights into the theater world.</p>
     
     <h3><u>Data and Code</u></h3>
-    <p>The data was sourced from Playbill's historical revenue reports. For the data scraping code, 
-    visit my GitHub: <a href='[Your GitHub Link]'>GitHub Repository</a>.</p>
+    <p>The data is sourced from Playbill's historical revenue reports. For the data scraping code, 
+    visit my GitHub: <a href='https://github.com/ChTomer/BroadwayShow/'>GitHub Repository</a>.</p>
   ")
   })
+  
   
   #####################################
   ######## compare show guide  ########
   #####################################
-   
+  
   output$compare_shows_guide <- renderUI({
     HTML("
-  
     <ul>
-      <li><strong>Select Two Shows to Compare:</strong>
+      <li><strong>Select Two Shows:</strong> Choose any two shows you want to compare.</li>
+      <li><strong>Set a Date Range:</strong> Use the slider to pick the years you’re interested in.</li>
+      <li><strong>Choose a Comparison Type:</strong> Select one of the following:
         <ul>
-          <li><strong>Show 1 and Show 2</strong></li>
+          <li><strong>Revenue Difference:</strong> See how the weekly gross revenue compares.</li>
+          <li><strong>Length of Show:</strong> Compare how long each show has run.</li>
+          <li><strong>Seats Sold:</strong> Compare the weekly seat sales between the shows.</li>
+          <li><strong>Average Ticket Price:</strong> See the differences in ticket prices.</li>
         </ul>
       </li>
-      <li><strong>Select a Date Range:</strong> Use the slider to select the range of years for which you want to compare the shows.</li>
-      <li><strong>Choose a Comparison Type:</strong>
-        <ul>
-          <li><strong>Revenue Difference:</strong> Compare the weekly gross revenue of the selected shows over the chosen date range.</li>
-          <li><strong>Length of Show:</strong> Compare the duration (number of weeks) each show has been running.</li>
-          <li><strong>Seats Sold Each Week:</strong> Compare the number of seats sold each week for the selected shows over the chosen date range.</li>
-          <li><strong>Average Ticket Price:</strong> Compare the average ticket price for the selected shows over the chosen date range.</li>
-        </ul>
-      </li>
-      <li><strong>View Show Summaries:</strong> Below the comparison results, view a summary of each selected show, including key information and descriptions.</li>
-    </ul>
+      <br>
+      <h5><strong><u>Average Ticket Price Destribution Tab:</u></strong></h5>
+      <li><strong>Explore the Violin Plot:</strong> Select 2 or more shows to visualize the distribution of average ticket prices. 
+      A violin plot helps you compare the price distribution, showing where ticket prices are most concentrated.</li>
+      <br>
+      <h5><strong><u>In Both Tabs:</u></strong></h5>
+      <p><strong>View Show Summaries:</strong> Scroll down to see a quick summary of the selected shows, including key stats and insights.</li>
+    </p>
   ")
   })
   
- 
   #####################################
   ### Total revenue by week guide  ####
   #####################################
   
-    output$total_revenue_guide <- renderUI({
+  output$total_revenue_guide <- renderUI({
     HTML("
     <h4>User Guide - Total Revenue by Week</h4>
-    <p>In the <strong>Total Revenue by Week</strong> tab, users can:</p>
     <ul>
       <li><strong>Select a Year:</strong> Choose the year from the dropdown list to view the total revenue for each week of that year.</li>
-      <li><strong>View Heatmap:</strong> The heatmap will display the total revenue for each show by week, with hover functionality to show exact values.</li>
+      <li><strong>View Heatmap:</strong> The heatmap will display the total revenue for each show by week. Move your mouse over the colorful cubes to understand better the weekly revenue for each show.</li>
     </ul>
   ")
   })
+  
+  
+  output$theater_by_show_guide <- renderUI({
+    HTML("
+    <ul>
+      <li><strong>Select a Show:</strong> Choose a show from the dropdown to see all shows presented there.</li>
+      <li><strong>Sort Data:</strong> Click on column headers to sort the table by different criteria.</li>
+    </ul>
+  ")
+  })
+  
+  output$show_by_theaters_guide <- renderUI({
+    HTML("
+    <ul>
+      <li><strong>Select a Theater:</strong> Choose a theater from the dropdown to see all shows presented there.</li>
+      <li><strong>Interactive Table:</strong> The table shows details like weeks run, ticket prices, and revenue.</li>
+      <li><strong>Sort Data:</strong> Click on column headers to sort the table by different criteria.</li>
+    </ul>
+  ")
+  })
+  
   
   # Custom theme font-size function
   custom_theme <- function() {

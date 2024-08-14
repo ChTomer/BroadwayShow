@@ -345,6 +345,18 @@ dashboardPage(
                 ),
                 tabPanel("Shows by Theaters",
                          fluidRow(
+                           column(width = 12,
+                                  box(
+                                    title = "User Guide - Show by Theater",
+                                    status = "info",
+                                    solidHeader = TRUE,
+                                    width = 12,
+                                    collapsible = TRUE,
+                                    collapsed = FALSE,
+                                    htmlOutput("show_by_theaters_guide")
+                                  ))
+                         ),
+                         fluidRow(
                            column(width = 4,
                                   selectInput("selected_theater_summary", 
                                               "Select Theater for Summary:", 
@@ -361,7 +373,21 @@ dashboardPage(
                            )
                          )
                 ),
+                
+                
                 tabPanel("Theaters by Shows",
+                         fluidRow(
+                           column(width = 12,
+                                  box(
+                                    title = "User Guide - Theater by Show",
+                                    status = "info",
+                                    solidHeader = TRUE,
+                                    width = 12,
+                                    collapsible = TRUE,
+                                    collapsed = FALSE,
+                                    htmlOutput("theater_by_show_guide")
+                                  ))
+                         ),
                          fluidRow(
                            column(width = 4,
                                   selectizeInput("selected_show", 
@@ -402,7 +428,9 @@ dashboardPage(
                   h4("Hello! My name is Tomer Choresh. I am currently a student in NYC Data Science Academy in New York.", style="text-align:center"),
                   h4("This Shiny app is part of my portfolio to showcase my skills in data visualization and analysis.", style="text-align:center"),
                   h4("Feel free to connect with me on LinkedIn or check out my GitHub or Blog for more projects:", style="text-align:center"),
-                  div(img(src="./Tomerpic.jpeg", height='25%', width='25%', style="border-radius:50%;"), style="text-align:center"),
+                  div(img(src="./DSC_6228.png",# height='25%', width='25%'),
+                          style = "width: 150px; height: 150px; object-fit: cover; object-position: 50% 20%;"),
+                          style="text-align:center"),
                   
                   uiOutput("linkdein"),
                   uiOutput("github"),
