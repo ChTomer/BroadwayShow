@@ -35,6 +35,7 @@ __pycache__/
 .Rhistory
 .RData
 .Ruserdata
+.dcf
 
 # LaTeX specific files
 *.aux
