@@ -1,0 +1,13 @@
+name: Broadway_Show_NYC
+title: Broadway_Show_NYC
+username: chtomer
+account: chtomer
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 12467057
+bundleId: 8992776
+url: https://chtomer.shinyapps.io/Broadway_Show_NYC/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: describe_show.py|main.py|ReadMe.md

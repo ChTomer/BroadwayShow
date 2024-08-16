@@ -46,7 +46,7 @@ shinyServer(function(input, output, session) {
     discover trends, and gain insights into the theater world.</p>
     
     <h3><u>Data and Code</u></h3>
-    <p>The data is sourced from Playbill's historical revenue reports. For the data scraping code, 
+    <p>The data is sourced from <a href='https://playbill.com/grosses'>Playbill's historical revenue</a> reports. For the data scraping code, 
     visit my GitHub: <a href='https://github.com/ChTomer/BroadwayShow/'>GitHub Repository</a>.</p>
   ")
   })
@@ -59,12 +59,13 @@ shinyServer(function(input, output, session) {
   output$compare_shows_guide <- renderUI({
     HTML("
     <ul>
-      <li><strong>Select Two Shows:</strong> Choose any two shows you want to compare.</li>
+      <h5><strong><u>Compare Two Shows Tab:</u></strong></h5>
+      <li><strong>Select Shows:</strong> Choose any two shows you want to compare.</li>
       <li><strong>Set a Date Range:</strong> Use the slider to pick the years you’re interested in.</li>
       <li><strong>Choose a Comparison Type:</strong> Select one of the following:
         <ul>
           <li><strong>Revenue Difference:</strong> See how the weekly gross revenue compares.</li>
-          <li><strong>Length of Show:</strong> Compare how long each show has run.</li>
+          <li><strong>Length of Show:</strong> Compare how long each show has run (in weeks).</li>
           <li><strong>Seats Sold:</strong> Compare the weekly seat sales between the shows.</li>
           <li><strong>Average Ticket Price:</strong> See the differences in ticket prices.</li>
         </ul>
@@ -86,7 +87,7 @@ shinyServer(function(input, output, session) {
   
   output$total_revenue_guide <- renderUI({
     HTML("
-    <h4>User Guide - Total Revenue by Week</h4>
+    
     <ul>
       <li><strong>Select a Year:</strong> Choose the year from the dropdown list to view the total revenue for each week of that year.</li>
       <li><strong>View Heatmap:</strong> The heatmap will display the total revenue for each show by week. Move your mouse over the colorful cubes to understand better the weekly revenue for each show.</li>
@@ -98,7 +99,7 @@ shinyServer(function(input, output, session) {
   output$theater_by_show_guide <- renderUI({
     HTML("
     <ul>
-      <li><strong>Select a Show:</strong> Choose a show from the dropdown to see all shows presented there.</li>
+      <li><strong>Select a Show:</strong> Choose a show from the dropdown to view all theaters that hosted the show.</li>
       <li><strong>Sort Data:</strong> Click on column headers to sort the table by different criteria.</li>
     </ul>
   ")
@@ -107,8 +108,7 @@ shinyServer(function(input, output, session) {
   output$show_by_theaters_guide <- renderUI({
     HTML("
     <ul>
-      <li><strong>Select a Theater:</strong> Choose a theater from the dropdown to see all shows presented there.</li>
-      <li><strong>Interactive Table:</strong> The table shows details like weeks run, ticket prices, and revenue.</li>
+      <li><strong>Select a Theater:</strong> Choose a theater from the dropdown to view all shows presented there.</li>
       <li><strong>Sort Data:</strong> Click on column headers to sort the table by different criteria.</li>
     </ul>
   ")
