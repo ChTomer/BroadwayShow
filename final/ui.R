@@ -20,19 +20,47 @@ dashboardPage(
     )
   ),
   dashboardBody(
-    #### Add custom CSS, mostly for the text
+    #### Add custom CSS, mostly for the text, box and other relevant layouts
     tags$head(
     tags$style(HTML("
       .custom-description {
         font-size: 16px;
-        font-weight: bold;
-        color: #512e5f;
-        font-family: Arial, sans-serif;
+        color: #212121;
+        font-family: Lato, sans-serif;
+        margin-left: 30px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        margin-right: 30px;
+        
+        
       }
+      
+      /* Custom styles for the box header */
+      .box.box-solid.box-primary > .box-header {
+        background-color: #7FB3D5;      /*  background color */
+        color: #222d32;                 /*  text color */
+        border-top-left-radius: 10px; /* Rounded top left corner */
+        border-top-right-radius: 10px; /* Rounded top right corner */
+        
+      }
+      
       .box-header .box-tools {
             float: left;
             margin-left: 10px;
-          }
+            
+      }
+      
+      .box.box-solid.box-primary {
+        border: 1px solid transparent; 
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        background-color: #ecf0f5;
+        border-radius: 10px;
+      }
+      .skin-blue .main-header .navbar {
+              background-color: #7FB3D5;
+      }
+      
+      
     "))
     ),
     
@@ -84,7 +112,7 @@ dashboardPage(
                              status = "primary",
                              solidHeader = TRUE,
                              width = 12,
-                             plotOutput("top_20_revenue")
+                             plotOutput("top_20_revenue", width = "100%")
                            )
                          )
                 ),
@@ -123,7 +151,7 @@ dashboardPage(
                 column(width = 12,
                        box(
                          title = "User Guide - Compare Shows",
-                         status = "info",
+                         status = "primary",
                          solidHeader = TRUE,
                          width = 12,
                          collapsible = TRUE,
@@ -190,7 +218,7 @@ dashboardPage(
                 fluidRow(
                   box(
                     title = "Show 1 Summary",
-                    status = "info",
+                    status = "primary",
                     solidHeader = TRUE,
                     width = 6,
                     htmlOutput("first_show_summary")#,
@@ -198,7 +226,7 @@ dashboardPage(
                   ),
                   box(
                     title = "Show 2 Summary",
-                    status = "info",
+                    status = "primary",
                     solidHeader = TRUE,
                     width = 6,
                     htmlOutput("second_show_summary")#,
@@ -261,7 +289,7 @@ dashboardPage(
                 column(width = 12,
                        box(
                          title = "User Guide - Total Revenue by Week",
-                         status = "info",
+                         status = "primary",
                          solidHeader = TRUE,
                          width = 12,
                          collapsible = TRUE,
@@ -348,7 +376,7 @@ dashboardPage(
                            column(width = 12,
                                   box(
                                     title = "User Guide - Show by Theater",
-                                    status = "info",
+                                    status = "primary",
                                     solidHeader = TRUE,
                                     width = 12,
                                     collapsible = TRUE,
@@ -380,7 +408,7 @@ dashboardPage(
                            column(width = 12,
                                   box(
                                     title = "User Guide - Theater by Show",
-                                    status = "info",
+                                    status = "primary",
                                     solidHeader = TRUE,
                                     width = 12,
                                     collapsible = TRUE,

@@ -20,34 +20,34 @@ shinyServer(function(input, output, session) {
 
   output$project_summary <- renderUI({
     HTML("
-    <h2><u>Welcome to the Broadway Shows Analysis App</u></h2>
+    <h1><strong>Welcome to the Broadway Shows Analysis App</strong></h1>
     <p>This app provides a comprehensive analysis of the financial performance of Broadway shows, 
     offering valuable insights for both fans and industry professionals.</p>
     
-    <h3><u>App Features</u></h3>
+    <h3>App Feature</h3>
     <p>Explore Broadway shows through these key features:</p>
     <ul>
-      <li><strong>Top 20 Shows:</strong> Compare the top 20 shows based on revenue, ticket prices, 
+      <li>Top 20 Shows: Compare the top 20 shows based on revenue, ticket prices, 
       and length of running.</li>
-      <li><strong>Compare Shows:</strong> Analyze multiple shows on metrics like revenue 
+      <li>Compare Shows: Analyze multiple shows on metrics like revenue 
       and audience engagement using interactive charts.</li>
-      <li><strong>Total Revenue by Week:</strong> Visualize the total weekly gross revenue for each show 
+      <li>Total Revenue by Week: Visualize the total weekly gross revenue for each show 
       through interactive heatmaps.</li>
-      <li><strong>Theater Overview:</strong> Delve into a decade-wise analysis of Broadway theaters, 
+      <li>Theater: Delve into a decade-wise analysis of Broadway theaters, 
       including the number of shows, total revenue, seating capacity, and ticket prices. Additionally, 
       you can explore detailed summaries of shows performed at specific theaters or discover which theaters 
       hosted a particular show.</li>
       
     </ul>
     
-    <h3><u>Why Use This App?</u></h3>
+    <h3>Why Use This App?</h3>
     <p>Whether you're a Broadway fan or an industry professional, this app equips you with the tools 
     to explore and understand the financial dynamics of Broadway. Use it to make informed decisions, 
     discover trends, and gain insights into the theater world.</p>
     
-    <h3><u>Data and Code</u></h3>
+    <h3>Data and Code</h3>
     <p>The data is sourced from <a href='https://playbill.com/grosses'>Playbill's historical revenue</a> reports. For the data scraping code, 
-    visit my GitHub: <a href='https://github.com/ChTomer/BroadwayShow/'>GitHub Repository</a>.</p>
+    visit my <a href='https://github.com/ChTomer/BroadwayShow/'>GitHub Repository</a>.</p>
   ")
   })
   
@@ -59,24 +59,24 @@ shinyServer(function(input, output, session) {
   output$compare_shows_guide <- renderUI({
     HTML("
     <ul>
-      <h5><strong><u>Compare Two Shows Tab:</u></strong></h5>
-      <li><strong>Select Shows:</strong> Choose any two shows you want to compare.</li>
-      <li><strong>Set a Date Range:</strong> Use the slider to pick the years you’re interested in.</li>
-      <li><strong>Choose a Comparison Type:</strong> Select one of the following:
+      <h5>Compare Two Shows Tab:</h5>
+      <li>Select Shows:Choose any two shows you want to compare.</li>
+      <li>Set a Date Range: Use the slider to pick the years you’re interested in.</li>
+      <li>Choose a Comparison Type: Select one of the following:
         <ul>
-          <li><strong>Revenue Difference:</strong> See how the weekly gross revenue compares.</li>
-          <li><strong>Length of Show:</strong> Compare how long each show has run (in weeks).</li>
-          <li><strong>Seats Sold:</strong> Compare the weekly seat sales between the shows.</li>
-          <li><strong>Average Ticket Price:</strong> See the differences in ticket prices.</li>
+          <li>Revenue Difference: See how the weekly gross revenue compares.</li>
+          <li>Length of Show: Compare how long each show has run (in weeks).</li>
+          <li>Seats Sold: Compare the weekly seat sales between the shows.</li>
+          <li>Average Ticket Price: See the differences in ticket prices.</li>
         </ul>
       </li>
       <br>
-      <h5><strong><u>Average Ticket Price Destribution Tab:</u></strong></h5>
-      <li><strong>Explore the Violin Plot:</strong> Select 2 or more shows to visualize the distribution of average ticket prices. 
+      <h5>Average Ticket Price Destribution Tab:</h5>
+      <li>Explore the Violin Plot: Select 2 or more shows to visualize the distribution of average ticket prices. 
       A violin plot helps you compare the price distribution, showing where ticket prices are most concentrated.</li>
       <br>
-      <h5><strong><u>In Both Tabs:</u></strong></h5>
-      <p><strong>View Show Summaries:</strong> Scroll down to see a quick summary of the selected shows, including key stats and insights.</li>
+      <h5>In Both Tabs:</h5>
+      <p>View Show Summaries: Scroll down to see a quick summary of the selected shows, including key stats and insights.</li>
     </p>
   ")
   })
@@ -89,8 +89,8 @@ shinyServer(function(input, output, session) {
     HTML("
     
     <ul>
-      <li><strong>Select a Year:</strong> Choose the year from the dropdown list to view the total revenue for each week of that year.</li>
-      <li><strong>View Heatmap:</strong> The heatmap will display the total revenue for each show by week. Move your mouse over the colorful cubes to understand better the weekly revenue for each show.</li>
+      <li>Select a Year: Choose the year from the dropdown list to view the total revenue for each week of that year.</li>
+      <li>View Heatmap: The heatmap will display the total revenue for each show by week. Move your mouse over the colorful cubes to understand better the weekly revenue for each show.</li>
     </ul>
   ")
   })
@@ -99,8 +99,8 @@ shinyServer(function(input, output, session) {
   output$theater_by_show_guide <- renderUI({
     HTML("
     <ul>
-      <li><strong>Select a Show:</strong> Choose a show from the dropdown to view all theaters that hosted the show.</li>
-      <li><strong>Sort Data:</strong> Click on column headers to sort the table by different criteria.</li>
+      <li>Select a Show: Choose a show from the dropdown to view all theaters that hosted the show.</li>
+      <li>Sort Data: Click on column headers to sort the table by different criteria.</li>
     </ul>
   ")
   })
@@ -108,8 +108,8 @@ shinyServer(function(input, output, session) {
   output$show_by_theaters_guide <- renderUI({
     HTML("
     <ul>
-      <li><strong>Select a Theater:</strong> Choose a theater from the dropdown to view all shows presented there.</li>
-      <li><strong>Sort Data:</strong> Click on column headers to sort the table by different criteria.</li>
+      <li>Select a Theater: Choose a theater from the dropdown to view all shows presented there.</li>
+      <li>Sort Data: Click on column headers to sort the table by different criteria.</li>
     </ul>
   ")
   })

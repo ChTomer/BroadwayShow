@@ -34,6 +34,7 @@ broadway$seats_sold <- as.numeric(gsub("[\\$,]", "", broadway$seats_sold))
 broadway$seats_in_theater <- as.numeric(gsub("[\\$,]", "", broadway$seats_in_theater))
 broadway$capacity <- as.numeric(gsub("[\\%,]", "", broadway$capacity))
 broadway$week_date <- as.Date(broadway$week_date, format="%Y-%m-%d")
+broadway$theater <- gsub("Theatre","Theater", broadway$theater, ignore.case = TRUE)
 
 broadway$decade <- floor(as.numeric(format(broadway$week_date, "%Y")) / 10) * 10
 
