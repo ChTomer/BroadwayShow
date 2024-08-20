@@ -31,23 +31,19 @@ dashboardPage(
         margin-top: 30px;
         margin-bottom: 30px;
         margin-right: 30px;
-        
-        
       }
       
       /* Custom styles for the box header */
       .box.box-solid.box-primary > .box-header {
         background-color: #7FB3D5;      /*  background color */
         color: #222d32;                 /*  text color */
-        border-top-left-radius: 10px; /* Rounded top left corner */
-        border-top-right-radius: 10px; /* Rounded top right corner */
-        
+        border-top-left-radius: 10px;   /* Rounded top left corner */
+        border-top-right-radius: 10px;  /* Rounded top right corner */
       }
       
       .box-header .box-tools {
             float: left;
             margin-left: 10px;
-            
       }
       
       .box.box-solid.box-primary {
@@ -57,9 +53,12 @@ dashboardPage(
         border-radius: 10px;
       }
       .skin-blue .main-header .navbar {
-              background-color: #7FB3D5;
+              background-color: #7FB3D5; /*top bar color*/
       }
       
+      .skin-blue .main-sidebar, .skin-blue .wrapper {
+        background-color: #222d32;    /*left side-bar color*/
+      }
       
     "))
     ),

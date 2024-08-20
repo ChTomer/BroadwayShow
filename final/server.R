@@ -27,21 +27,18 @@ shinyServer(function(input, output, session) {
     <h3>App Feature</h3>
     <p>Explore Broadway shows through these key features:</p>
     <ul>
-      <li>Top 20 Shows: Compare the top 20 shows based on revenue, ticket prices, 
-      and length of running.</li>
+      <li>Top 20 Shows: Compare the top 20 shows based on different matrics.</li>
       <li>Compare Shows: Analyze multiple shows on metrics like revenue 
       and audience engagement using interactive charts.</li>
       <li>Total Revenue by Week: Visualize the total weekly gross revenue for each show 
       through interactive heatmaps.</li>
-      <li>Theater: Delve into a decade-wise analysis of Broadway theaters, 
-      including the number of shows, total revenue, seating capacity, and ticket prices. Additionally, 
-      you can explore detailed summaries of shows performed at specific theaters or discover which theaters 
+      <li>Theater: Delve into a decade-wise analysis of Broadway theaters. you can explore detailed summaries of shows performed at specific theaters or discover which theaters 
       hosted a particular show.</li>
       
     </ul>
     
     <h3>Why Use This App?</h3>
-    <p>Whether you're a Broadway fan or an industry professional, this app equips you with the tools 
+    <p>Whether you're a Broadway fan or an industry professional, this app provide you tools 
     to explore and understand the financial dynamics of Broadway. Use it to make informed decisions, 
     discover trends, and gain insights into the theater world.</p>
     
@@ -59,7 +56,7 @@ shinyServer(function(input, output, session) {
   output$compare_shows_guide <- renderUI({
     HTML("
     <ul>
-      <h5>Compare Two Shows Tab:</h5>
+      <h4>Compare Two Shows Tab:</h4>
       <li>Select Shows:Choose any two shows you want to compare.</li>
       <li>Set a Date Range: Use the slider to pick the years you’re interested in.</li>
       <li>Choose a Comparison Type: Select one of the following:
@@ -71,12 +68,12 @@ shinyServer(function(input, output, session) {
         </ul>
       </li>
       <br>
-      <h5>Average Ticket Price Destribution Tab:</h5>
+      <h4>Average Ticket Price Destribution Tab:</h4>
       <li>Explore the Violin Plot: Select 2 or more shows to visualize the distribution of average ticket prices. 
-      A violin plot helps you compare the price distribution, showing where ticket prices are most concentrated.</li>
+      <p>A violin plot helps you compare the price distribution, showing where ticket prices are most concentrated.</p></li>
       <br>
-      <h5>In Both Tabs:</h5>
-      <p>View Show Summaries: Scroll down to see a quick summary of the selected shows, including key stats and insights.</li>
+      <h4>In Both Tabs:</h4>
+      <li>View Show Summaries: Scroll down to see a quick summary of the selected shows, including key stats and insights.</li>
     </p>
   ")
   })
@@ -140,7 +137,7 @@ shinyServer(function(input, output, session) {
       summarise(total_revenue = sum(this_week_gross, na.rm = TRUE), .groups = 'drop') %>%
       mutate(hover_text = paste("Year:", year, 
                                 "<br>Week number:", week, 
-                                "<br>Total revenue:", scales::comma(total_revenue), "$"))
+                                "<br>Total revenue: $", scales::comma(total_revenue)))
     
     # Generate Plotly line chart
     plot_ly(data, x = ~week, y = ~total_revenue, color = ~year, type = 'scatter', mode = 'lines',
@@ -169,7 +166,7 @@ shinyServer(function(input, output, session) {
       geom_bar(stat = "identity", show.legend = FALSE) +
       coord_flip() +
       theme_minimal() +
-      labs(title = "Top 20 Shows by Total Revenue", x = "Show", y = "Total Gross") +
+      labs(title = "Top 20 Shows by Total Revenue", x = "Show", y = "Total Gross ($)") +
       scale_y_continuous(labels = comma) +  
       theme(legend.position = "none")+
       custom_theme()
@@ -187,7 +184,7 @@ shinyServer(function(input, output, session) {
       geom_bar(stat = "identity", show.legend = FALSE) +
       coord_flip() +
       theme_minimal() +
-      labs(title = "Top 20 Shows by Average Weekly Revenue", x = "Show", y = "Average Weekly Revenue") +
+      labs(title = "Top 20 Shows by Average Weekly Revenue", x = "Show", y = "Average Weekly Revenue ($)") +
       scale_y_continuous(labels = comma) +  
       theme(legend.position = "none")+
       custom_theme()
@@ -234,7 +231,7 @@ shinyServer(function(input, output, session) {
       
       plot_ly(data, x = ~week_date, y = ~this_week_gross, type = 'scatter', mode = 'lines+markers', color = ~show,
               colors = my_colors,
-              text = ~paste("Show:", show, "<br>Date:", week_date, "<br>Total Gross:", this_week_gross),
+              text = ~paste("Show:", show, "<br>Date:", week_date, "<br>Total Gross: $", scales::comma(this_week_gross)),
               hoverinfo = 'text',
               height = 400) %>%
         layout(title = "Revenue Difference",
@@ -262,7 +259,7 @@ shinyServer(function(input, output, session) {
       
       plot_ly(data, x = ~week_date, y = ~total_seats, type = 'scatter', mode = 'lines+markers', color = ~show,
               colors = my_colors,
-              text = ~paste("Show:", show, "<br>Date:", week_date, "<br>Total Seats:", total_seats),
+              text = ~paste("Show:", show, "<br>Date:", week_date, "<br>Total Seats:", scales::comma(total_seats)),
               hoverinfo = 'text',
               height = 400) %>%
         layout(title = "Seats Sold Each Week",
@@ -276,12 +273,12 @@ shinyServer(function(input, output, session) {
       
       plot_ly(data, x = ~week_date, y = ~avg_ticket_price, type = 'scatter', mode = 'lines+markers', color = ~show,
               colors = my_colors,
-              text = ~paste("Show:", show, "<br>Date:", week_date, "<br>Avg Ticket Price:", avg_ticket_price),
+              text = ~paste("Show:", show, "<br>Date:", week_date, "<br>Avg Ticket Price: $", avg_ticket_price),
               hoverinfo = 'text',
               height = 400) %>%
         layout(title = "Average Ticket Price",
                xaxis = list(title = "Week Date"),
-               yaxis = list(title = "Average Ticket Price"))
+               yaxis = list(title = "Average Ticket Price ($)"))
     }
   })
   ##################################################
@@ -405,7 +402,7 @@ shinyServer(function(input, output, session) {
     ggplot(data, aes(x = show, y = avg_ticket_price, fill = show)) +
       geom_violin() +
       theme_minimal() +
-      labs(title = "Average Ticket Prices", x = "Show", y = "Average Ticket Price") +
+      labs(title = "Average Ticket Prices", x = "Show", y = "Average Ticket Price ($)") +
       theme(legend.position = "none")
   })
   
@@ -423,7 +420,8 @@ shinyServer(function(input, output, session) {
       geom_line(linewidth = 1) +
       geom_point(size = 2) +
       theme_minimal() +
-      labs(title = "Yearly Difference in Gross Revenue", x = "Year", y = "Yearly Gross Revenue")
+      scale_y_continuous(labels = comma) +  
+      labs(title = "Yearly Difference in Gross Revenue", x = "Year", y = "Yearly Gross Revenue ($)")
   })
   
   # Summary of Selected Shows
@@ -498,7 +496,7 @@ shinyServer(function(input, output, session) {
     # Pivot the data to create a matrix for the heatmap
     # Create a text column for hover information
     data <- data %>%
-      mutate(hover_text = paste("Show:", show, "<br>Week:", week_date, "<br>Total Revenue:", scales::comma(total_gross)))
+      mutate(hover_text = paste("Show:", show, "<br>Week:", week_date, "<br>Total Revenue: $", scales::comma(total_gross)))
     
     plot_ly(
       data,
@@ -582,7 +580,7 @@ shinyServer(function(input, output, session) {
     ggplot(data, aes(x = reorder(theater, avg_revenue), y = avg_revenue, fill = theater)) +
       geom_bar(stat = "identity", show.legend = FALSE) +
       coord_flip() +
-      labs(title = "Total Revenue per Theater", x = "Theater", y = "Total Revenue") +
+      labs(title = "Total Revenue per Theater", x = "Theater", y = "Total Revenue ($)") +
       scale_y_continuous(labels = comma) +  
       custom_theme()
   })
@@ -611,7 +609,7 @@ shinyServer(function(input, output, session) {
     ggplot(data, aes(x = reorder(theater, avg_ticket_price), y = avg_ticket_price, fill = theater)) +
       geom_bar(stat = "identity", show.legend = FALSE) +
       coord_flip() +
-      labs(title = "Average Ticket Price per Theater", x = "Theater", y = "Average Ticket Price") +
+      labs(title = "Average Ticket Price per Theater", x = "Theater", y = "Average Ticket Price ($)") +
       custom_theme()
   })
   ############################# 

@@ -17,7 +17,7 @@ library(shinydashboard)
 library(tidyr)
  
 # Load the datasets
-broadway <- read.csv("broadway_grosses_historical.csv")
+broadway <- read.csv("broadway_data.csv")
 show_summaries <- read.csv("broadway_show_summaries.csv") # dry information for the summary in comparison tab
 
 # Rename columns to the specified format

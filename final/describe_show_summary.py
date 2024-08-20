@@ -1,13 +1,15 @@
 import pandas as pd
 
 # Load the dataset
-file_path = 'broadway_grosses_historical.csv' # local file path
-broadway = pd.read_csv(file_path)
+# file_path = 'broadway_data.csv' # local file path
+broadway = pd.read_csv('broadway_data.csv')
 
 # Ensure columns are correctly named
 broadway.columns = [
-    'show', 'gross', 'diff_gross', 'avg_ticket_price', 'seats_sold', 
-    'perfs_previews', 'capacity', 'diff_capacity', 'week_date'
+    "show", "theater", "this_week_gross", "potential_gross",
+  "avg_ticket_price", "top_ticket_price", "seats_sold",
+  "seats_in_theater", "performances", "previews",
+  "capacity", "week_date", 'decade'
 ]
 
 # Convert week_date to datetime
@@ -23,8 +25,8 @@ for show in broadway['show'].unique():
     start_date = show_data['week_date'].min().strftime('%Y-%m-%d')
     end_date = show_data['week_date'].max().strftime('%Y-%m-%d')
     # sum and avg of revenue for later
-    total_revenue = show_data['gross'].sum()
-    avg_weekly_revenue = show_data['gross'].mean()
+    total_revenue = show_data['this_week_gross'].sum()
+    avg_weekly_revenue = show_data['this_week_gross'].mean()
     # create the prompt for the summary to each show in the df.
     summary = f"The show '{show}' ran from {start_date} to {end_date}. It had an average weekly revenue of ${avg_weekly_revenue:,.2f} and a total revenue of ${total_revenue:,.2f}."
     # create the df with both only relevant columns
