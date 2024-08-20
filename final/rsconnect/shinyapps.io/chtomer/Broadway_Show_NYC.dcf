@@ -5,9 +5,9 @@ account: chtomer
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 12467057
-bundleId: 8992776
+bundleId: 9006863
 url: https://chtomer.shinyapps.io/Broadway_Show_NYC/
 version: 1
 asMultiple: FALSE
 asStatic: FALSE
-ignoredFiles: describe_show.py|main.py|ReadMe.md
+ignoredFiles: broadway_grosses_historical_new.csv|broadway_grosses_historical.csv|describe_show_summary.py|main.py|merging_tables.R|ReadMe.md|ShortScraping.py

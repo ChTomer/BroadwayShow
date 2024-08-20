@@ -1,7 +1,10 @@
 import pandas as pd
 
 # Load the dataset
-# file_path = 'broadway_data.csv' # local file path
+''' 
+No need to change anything in this code. just open and run. 
+It will update the broadway_show_summaries.csv file  
+'''
 broadway = pd.read_csv('broadway_data.csv')
 
 # Ensure columns are correctly named

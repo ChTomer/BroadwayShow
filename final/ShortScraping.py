@@ -119,7 +119,12 @@ column_names = [
 ]
 
 all_data = []
-
+'''
+The only area to play with (unless something dramatic happened to the playbill.com website
+start_date <= change to the recent week displayed on the website.
+end_date <= you can leave as is. 
+It will be fine anyway because later we will use "join" and "anti_join" to remove duplicates. 
+'''
 # Define the date range for scraping
 start_date = datetime.strptime('2024-08-11', '%Y-%m-%d')
 end_date = datetime.strptime('2024-07-28', '%Y-%m-%d')
