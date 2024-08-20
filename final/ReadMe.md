@@ -3,6 +3,8 @@
 
 - The Broadway Shows Analysis App is a Shiny web application designed to provide an in-depth analysis of Broadway shows. It offers valuable insights for both theater enthusiasts and industry professionals, focusing on metrics such as revenue, ticket prices, and theater performance over time.
 
+* please visit my app: https://chtomer.shinyapps.io/Broadway_Show_NYC/
+
 ### scraping code:
 * You can find the code to scrape the data directly from www.playbill.com/revenue. 
 Please take a look inside the code and adjust the beginning date of scraping.
