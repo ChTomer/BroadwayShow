@@ -23,8 +23,6 @@
 -   Yearly Heatmap: Visualize the total weekly gross revenue for each show.
 -   Theater Summary by Decade: Review statistics on theater performance over different decades, along with other metrics related to theaters and shows within this tab.
 
-Here's the revised text with minimal changes:
-
 ### Usage
 
 -   Navigating the App: Use the tabs on the left to switch between different analysis sections.
