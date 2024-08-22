@@ -5,7 +5,7 @@ account: chtomer
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 12467057
-bundleId: 9006863
+bundleId: 9015238
 url: https://chtomer.shinyapps.io/Broadway_Show_NYC/
 version: 1
 asMultiple: FALSE

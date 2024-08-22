@@ -234,7 +234,7 @@ dashboardPage(
               ),
               
               
-              tabPanel("Average Ticket Price Destribution",
+              tabPanel("Average Ticket Price Distribution",
                        tabPanel("Compare Shows",
                                 fluidRow(
                                   box(

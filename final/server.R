@@ -27,7 +27,7 @@ shinyServer(function(input, output, session) {
     <h3>App Feature</h3>
     <p>Explore Broadway shows through these key features:</p>
     <ul>
-      <li>Top 20 Shows: Compare the top 20 shows based on different matrics.</li>
+      <li>Top 20 Shows: Compare the top 20 shows based on different metrics.</li>
       <li>Compare Shows: Analyze multiple shows on metrics like revenue 
       and audience engagement using interactive charts.</li>
       <li>Total Revenue by Week: Visualize the total weekly gross revenue for each show 
@@ -38,13 +38,13 @@ shinyServer(function(input, output, session) {
     </ul>
     
     <h3>Why Use This App?</h3>
-    <p>Whether you're a Broadway fan or an industry professional, this app provide you tools 
+    <p>Whether you're a Broadway fan or an industry professional, this app provides you with tools 
     to explore and understand the financial dynamics of Broadway. Use it to make informed decisions, 
     discover trends, and gain insights into the theater world.</p>
     
     <h3>Data and Code</h3>
     <p>The data is sourced from <a href='https://playbill.com/grosses'>Playbill's historical revenue</a> reports. For the data scraping code, 
-    visit my <a href='https://github.com/ChTomer/BroadwayShow/'>GitHub Repository</a>.</p>
+    please visit my <a href='https://github.com/ChTomer/BroadwayShow/'>GitHub Repository</a>.</p>
   ")
   })
   
@@ -68,7 +68,7 @@ shinyServer(function(input, output, session) {
         </ul>
       </li>
       <br>
-      <h4>Average Ticket Price Destribution Tab:</h4>
+      <h4>Average Ticket Price Distribution Tab:</h4>
       <li>Explore the Violin Plot: Select 2 or more shows to visualize the distribution of average ticket prices. 
       <p>A violin plot helps you compare the price distribution, showing where ticket prices are most concentrated.</p></li>
       <br>
