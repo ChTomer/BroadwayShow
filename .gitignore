@@ -11,7 +11,7 @@ node_modules/
 # Python compiled files
 __pycache__/
 *.py[cod]
-
+*.csv
 # Java compiled files
 *.class
 
