@@ -403,7 +403,11 @@ shinyServer(function(input, output, session) {
       geom_violin() +
       theme_minimal() +
       labs(title = "Average Ticket Prices", x = "Show", y = "Average Ticket Price ($)") +
-      theme(legend.position = "none")
+      theme(legend.position = "none",
+            plot.title = element_text(size = 20, face = "bold"),  # Adjust title size
+            axis.title.x = element_text(size = 16),  # Adjust x-axis title size
+            axis.title.y = element_text(size = 16),  # Adjust y-axis title size
+            axis.text = element_text(size = 14))  # Adjust axis text size
   })
   
   # Yearly Difference in Gross Revenue
@@ -421,7 +425,12 @@ shinyServer(function(input, output, session) {
       geom_point(size = 2) +
       theme_minimal() +
       scale_y_continuous(labels = comma) +  
-      labs(title = "Yearly Difference in Gross Revenue", x = "Year", y = "Yearly Gross Revenue ($)")
+      labs(title = "Yearly Difference in Gross Revenue", x = "Year", y = "Yearly Gross Revenue ($)") +
+      theme(legend.position = "none",
+            plot.title = element_text(size = 20, face = "bold"),  # Adjust title size
+            axis.title.x = element_text(size = 16),  # Adjust x-axis title size
+            axis.title.y = element_text(size = 16),  # Adjust y-axis title size
+            axis.text = element_text(size = 14)) # Adjust axis text size
   })
   
   # Summary of Selected Shows
