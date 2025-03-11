@@ -126,7 +126,7 @@ end_date <= you can leave as is.
 It will be fine anyway because later we will use "join" and "anti_join" to remove duplicates. 
 '''
 # Define the date range for scraping
-start_date = datetime.strptime('2024-08-11', '%Y-%m-%d')
+start_date = datetime.strptime('2025-03-09', '%Y-%m-%d')
 end_date = datetime.strptime('2024-07-28', '%Y-%m-%d')
 
 # Scrape data until no more data is found
@@ -142,5 +142,5 @@ for url, week_date in generate_urls(start_date, end_date):
 
 # Save the combined data to CSV
 df = pd.DataFrame(all_data, columns=column_names)
-df.to_csv('broadway_grosses_historical_new.csv', index=False)
+df.to_csv('broadway_grosses_historical_march_25.csv', index=False)
 logging.info("Data saved to broadway_grosses_historical_new.csv")
